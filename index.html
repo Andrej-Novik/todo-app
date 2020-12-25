@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;1,300&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;1,300&display=swap"
+		rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 	<title>Document</title>
 </head>
+
 <body>
-	<div class="wrapper">
-		<div class="_container">
-			<div class="page">
-				<div class="page__title">
-					todos
-				</div>
-					<div class="page__body body">
-						<form class="body__add-task" action="" name="form">
-							<input type="text" placeholder="Whats needs to be done?" name="">
-						</form>
-						<ul class="body__tasks">
-							<li class="body__task">
-								New task 1
-							</li>
-							<li class="body__task">
-								New task 2
-							</li>
-							<li class="body__task">
-								New task 3
-							</li>
-						</ul>
-						<div class="body__footer footer">
-							<div class="footer__left">
-								2 2 left
-							</div>
-							<nav class="footer__tabs">
-								<li class="footer__tab">All</li>
-								<li class="footer__tab">Active</li>
-								<li class="footer__tab">Completed</li>
-							</nav>
-							<div class="footer__clear">
-								Clear completed
-							</div>
-						</div>
-					</div>
-					<div class="page__mask page__mask_1">
-							
-					</div>
-					<div class="page__mask page__mask_2">
-							
-					</div>
+	<div class="page">
+		<div class="page__title">
+			todos
+		</div>
+		<div class="page__body body">
+			<div class="body__add-task" action="" name="form">
+				<input type="text" placeholder="Whats needs to be done?" name="">
 			</div>
+			<div class="body__tasks">
+				<label class="body__task task">
+					<input class="task__checkbox" type="checkbox">
+					<span class="task__check"></span>
+					<span class="task__text">New task 1</span>
+				</label>
+				<label class="body__task">
+					<input class="task__checkbox" type="checkbox">
+					<span class="task__check"></span>
+					<span class="task__text">New task 2</span>
+				</label>
+				<label class="body__task">
+					<input class="task__checkbox" type="checkbox">
+					<span class="task__check"></span>
+					<span class="task__text">New task 3</span>
+				</label>
+			</div>
+			<div class="body__footer footer">
+				<div class="footer__left">
+					2 2 left
+				</div>
+				<ul class="footer__tabs">
+					<li class="footer__tab">All</li>
+					<li class="footer__tab">Active</li>
+					<li class="footer__tab">Completed</li>
+				</ul>
+				<div class="footer__clear">
+					Clear completed
+				</div>
+			</div>
+		</div>
+		<div class="page__mask page__mask_1">
+
+		</div>
+		<div class="page__mask page__mask_2">
+
 		</div>
 	</div>
 </body>
+
 </html>
