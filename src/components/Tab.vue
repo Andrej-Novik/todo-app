@@ -9,24 +9,25 @@
 export default {
   name: "Tab",
   props: {
-    tab: String,
-  },
+    tab: String
+  }
 };
 </script>
 
-<style lang="scss" module scoped>
+<style lang="scss" module>
+@import "@/assets/styles/Vars&Mixins.scss";
 .tab {
   cursor: pointer;
   span {
-    margin: 0 7px;
-    padding: 3px;
+    margin: 0 0.5rem;
+    padding: 0.25rem;
   }
   input {
     display: none;
   }
   input:checked + span {
-    border: 1px solid#EBD8D7;
-    border-radius: 3px;
+    border: 1px solid $pageCalor;
+    border-radius: 0.25rem;
   }
 }
 </style>

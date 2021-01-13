@@ -4,17 +4,18 @@
   </div>
 </template>
 
-<style lang="scss" module >
+<style lang="scss" module>
+@import "@/assets/styles/Vars&Mixins.scss";
 .addTask {
-  padding: 0 0 0 30px;
+  padding: 0 0 0 2rem;
   position: relative;
-  border-bottom: 2px solid #afafad;
+  border-bottom: 2px solid $pageCalor;
   input {
-	 width: 100%;
-    color: #000;
-    padding: 10px 15px;
+    width: 100%;
+    color: $pageCalor;
+    padding: 0.6rem 2rem 0.6rem 1rem;
     font-style: italic;
-    font-size: 18px;
+    font-size: 1.125rem;
     letter-spacing: 1px;
     &::placeholder {
       color: #c1c1c1;
@@ -27,7 +28,7 @@
     left: 15px;
     width: 10px;
     height: 2px;
-    background-color: #afafad;
+    background-color: $pageCalor;
     transform: rotate(45deg);
     cursor: pointer;
   }
@@ -38,7 +39,7 @@
     left: 20px;
     width: 10px;
     height: 2px;
-    background-color: #afafad;
+    background-color: $pageCalor;
     transform: rotate(-45deg);
     cursor: pointer;
   }

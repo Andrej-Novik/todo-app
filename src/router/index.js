@@ -1,16 +1,20 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import ToDo from "@/ToDo";
 
 Vue.use(VueRouter);
 
 const routes = [
-
+  {
+    path: "/",
+    component: ToDo
+  }
 ];
 
 const router = new VueRouter({
-	mode: "history",
-	base: process.env.BASE_URL,
-	routes
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes
 });
 
 export default router;

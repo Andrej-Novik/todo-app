@@ -3,14 +3,15 @@
 </template>
 
 <style lang="scss" module scoped>
+@import "@/assets/styles/Vars&Mixins.scss";
 .title {
-  font-size: 100px;
+  font-size: 6.25rem;
   font-weight: 400;
   text-align: center;
   margin: 0 0 20px 0;
   color: #f6dbac;
-  @media (max-width: 370px) {
-    font-size: 90px;
-	}
+  @include forMobile {
+    font-size: 5.6rem;
+  }
 }
 </style>
