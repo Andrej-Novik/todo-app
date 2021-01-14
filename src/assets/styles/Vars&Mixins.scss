@@ -1,0 +1,7 @@
+$pageCalor: #afafad;
+
+@mixin forMobile {
+	@media(max-width: 365px) {
+	  @content;
+	}
+ }
