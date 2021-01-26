@@ -1,6 +1,6 @@
 <template>
   <label :class="$style.tab">
-    <input type="radio" name="filter" checked />
+    <input type="radio" name="filter" />
     <span>{{ tab }}</span>
   </label>
 </template>

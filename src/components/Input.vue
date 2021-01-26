@@ -1,8 +1,29 @@
 <template>
-  <div :class="$style.addTask">
-    <input type="text" placeholder="Whats needs to be done?" name="" />
-  </div>
+  <form @submit.prevent="addTask" :class="$style.addTask">
+    <input type="text" :placeholder="placeholderText" v-model="newTaskText" />
+  </form>
 </template>
+
+<script>
+import { mapMutations } from "vuex";
+export default {
+  data: () => ({
+    placeholderText: "Whats needs to be done?",
+    newTaskText: ""
+  }),
+  methods: {
+    ...mapMutations(["createTask"]),
+    addTask() {
+      this.createTask({
+        taskText: this.newTaskText,
+        isComplete: false,
+        id: Date.now()
+      });
+      this.newTaskText = "";
+    }
+  }
+};
+</script>
 
 <style lang="scss" module>
 @import "@/assets/styles/Vars&Mixins.scss";

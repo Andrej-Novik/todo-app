@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.footer">
-    <div :class="$style.left">2 2 left</div>
+    <div :class="$style.left">{{ activeCount }}/{{ tasksCount }} left</div>
     <Tabs :tabs="tabs" />
     <div :class="$style.clear">Clear completed</div>
   </div>
@@ -8,10 +8,12 @@
 
 <script>
 import Tabs from "./Tabs";
+import { mapGetters } from "vuex";
 export default {
-  data:()=>({
+  data: () => ({
     tabs: ["All", "Active", "Completed"]
-	}),
+  }),
+  computed: mapGetters(["activeCount", "tasksCount"]),
   components: {
     Tabs
   }

@@ -12,8 +12,7 @@ export default {
   props: {
     task: String,
     checked: {
-      type: Boolean,
-      default: false
+      type: Boolean
     }
   }
 };

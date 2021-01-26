@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.tasks">
     <Task
-      v-for="task of tasks"
-      :key="task"
-      :task="task.task"
+      v-for="task of validTasks"
+      :key="task.id"
+      :task="task.taskText"
       :checked="task.isComplete"
     />
   </div>
@@ -11,31 +11,9 @@
 
 <script>
 import Task from "./Task";
+import { mapGetters } from "vuex";
 export default {
-  data: () => ({
-    tasks: [
-      {
-        task: "Task 1",
-        isComplete: false
-      },
-      {
-        task: "Task 2",
-        isComplete: false
-      },
-      {
-        task: "Task 3",
-        isComplete: false
-      },
-      {
-        task: "Task 4",
-        isComplete: false
-      },
-      {
-        task: "Task 5",
-        isComplete: false
-      }
-    ]
-  }),
+  computed: mapGetters(["validTasks"]),
   components: {
     Task
   }
