@@ -3,6 +3,7 @@
     <Task
       v-for="task of validTasks"
       :key="task.id"
+      :idx="task.id"
       :task="task.taskText"
       :checked="task.isComplete"
     />

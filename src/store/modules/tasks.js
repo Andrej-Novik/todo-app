@@ -3,28 +3,28 @@ export default {
     tasks: [
       {
         taskText: "Task 1",
-        isComplete: false,
-        id: 1
+        isComplete: true,
+        id: 1111
       },
       {
         taskText: "Task 2",
         isComplete: true,
-        id: 2
+        id: 2222
       },
       {
         taskText: "Task 3",
         isComplete: false,
-        id: 3
+        id: 3333
       },
       {
         taskText: "Task 4",
         isComplete: false,
-        id: 4
+        id: 4444
       },
       {
         taskText: "Task 5",
-        isComplete: true,
-        id: 5
+        isComplete: false,
+        id: 5555
       }
     ],
     tabsType: {
@@ -35,6 +35,11 @@ export default {
   mutations: {
     createTask(state, newTask) {
       state.tasks.unshift(newTask);
+    },
+    changeStatus(state, targetId) {
+      state.tasks.map(task => {
+        if (task.id === targetId) task.isComplete = !task.isComplete;
+      });
     }
   },
   getters: {
