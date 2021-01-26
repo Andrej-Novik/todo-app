@@ -30,10 +30,10 @@ export default {
 .addTask {
   padding: 0 0 0 2rem;
   position: relative;
-  border-bottom: 2px solid $pageCalor;
+  border-bottom: 2px solid $pageColor;
   input {
     width: 100%;
-    color: $pageCalor;
+    color: $pageColor;
     padding: 0.6rem 2rem 0.6rem 1rem;
     font-style: italic;
     font-size: 1.125rem;
@@ -49,7 +49,7 @@ export default {
     left: 15px;
     width: 10px;
     height: 2px;
-    background-color: $pageCalor;
+    background-color: $pageColor;
     transform: rotate(45deg);
     cursor: pointer;
   }
@@ -60,7 +60,7 @@ export default {
     left: 20px;
     width: 10px;
     height: 2px;
-    background-color: $pageCalor;
+    background-color: $pageColor;
     transform: rotate(-45deg);
     cursor: pointer;
   }

@@ -1,9 +1,10 @@
 <template>
   <div :class="$style.tasks">
     <Task
-      v-for="task of validTasks"
+      v-for="(task, taskIndex) of validTasks"
       :key="task.id"
-      :idx="task.id"
+      :taskId="task.id"
+      :taskIndex="taskIndex"
       :task="task.taskText"
       :checked="task.isComplete"
     />

@@ -4,27 +4,27 @@ export default {
       {
         taskText: "Task 1",
         isComplete: true,
-        id: 1111
+        id: 1
       },
       {
         taskText: "Task 2",
         isComplete: true,
-        id: 2222
+        id: 2
       },
       {
         taskText: "Task 3",
         isComplete: false,
-        id: 3333
+        id: 3
       },
       {
         taskText: "Task 4",
         isComplete: false,
-        id: 4444
+        id: 4
       },
       {
         taskText: "Task 5",
         isComplete: false,
-        id: 5555
+        id: 5
       }
     ],
     tabsType: {
@@ -36,10 +36,13 @@ export default {
     createTask(state, newTask) {
       state.tasks.unshift(newTask);
     },
-    changeStatus(state, targetId) {
+    changeStatus(state, givenId) {
       state.tasks.map(task => {
-        if (task.id === targetId) task.isComplete = !task.isComplete;
+        if (task.id === givenId) task.isComplete = !task.isComplete;
       });
+    },
+    deleteTask(state, givenIndex) {
+      state.tasks.splice(givenIndex, 1);
     }
   },
   getters: {

@@ -26,7 +26,7 @@ export default {
     display: none;
   }
   input:checked + span {
-    border: 1px solid $pageCalor;
+    border: 1px solid $pageColor;
     border-radius: 0.25rem;
   }
 }
