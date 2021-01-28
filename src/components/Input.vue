@@ -1,5 +1,6 @@
 <template>
   <form @submit.prevent="addTask" :class="$style.addTask">
+    <span @click="allStatusChanging"></span>
     <input type="text" :placeholder="placeholderText" v-model="newTaskText" />
   </form>
 </template>
@@ -12,7 +13,7 @@ export default {
     newTaskText: ""
   }),
   methods: {
-    ...mapMutations(["createTask"]),
+    ...mapMutations(["createTask", "changeAllStatus"]),
     addTask() {
       this.createTask({
         taskText: this.newTaskText,
@@ -20,7 +21,11 @@ export default {
         id: Date.now()
       });
       this.newTaskText = "";
+    },
+    allStatusChanging() {
+      this.changeAllStatus();
     }
+
   }
 };
 </script>
@@ -42,27 +47,29 @@ export default {
       color: #c1c1c1;
     }
   }
-  &:before {
-    content: "";
-    position: absolute;
-    top: 22px;
-    left: 15px;
-    width: 10px;
-    height: 2px;
-    background-color: $pageColor;
-    transform: rotate(45deg);
-    cursor: pointer;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    top: 22px;
-    left: 20px;
-    width: 10px;
-    height: 2px;
-    background-color: $pageColor;
-    transform: rotate(-45deg);
-    cursor: pointer;
+  span {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 15px;
+      width: 10px;
+      height: 2px;
+      background-color: $pageColor;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 20px;
+      width: 10px;
+      height: 2px;
+      background-color: $pageColor;
+      transform: rotate(-45deg);
+      cursor: pointer;
+    }
   }
 }
 </style>

@@ -59,8 +59,21 @@ export default {
         if (task.id === givenId) task.isComplete = !task.isComplete;
       });
     },
+    changeAllStatus(state) {
+      state.tasks.map(task => {
+        task.isComplete = true;
+      });
+    },
     deleteTask(state, givenIndex) {
       state.tasks.splice(givenIndex, 1);
+    },
+    //ДОБАВЛЕНО
+    tabChanging(state, givenId, targetTabName) {
+      state.tabs.map(tab => {
+        if (tab.id === givenId) tab.isSelected = true;
+        else tab.isSelected = false;
+      });
+      state.tabsType = targetTabName;
     },
     deleteCompletedTasks(state) {
       state.tasks = state.tasks.filter(task => !task.isComplete);
@@ -75,6 +88,15 @@ export default {
     },
     completedTasks(state) {
       return state.tasks.filter(task => task.isComplete === true);
+    },
+    selectedTasks(state, getters) {
+      if (state.tabsType === "validTasks") {
+        return getters.validTasks;
+      } else if (state.tabsType === "activeTasks") {
+        return getters.activeTasks;
+      } else if (state.tabsType === "completedTasks") {
+        return getters.completedTasks;
+      }
     },
     tasksCount(state, getters) {
       return getters.validTasks.length;

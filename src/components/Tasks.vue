@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.tasks">
     <Task
-      v-for="(task, taskIndex) of validTasks"
+      v-for="(task, taskIndex) of selectedTasks"
       :key="task.id"
       :taskId="task.id"
       :taskIndex="taskIndex"
@@ -15,7 +15,7 @@
 import Task from "./Task";
 import { mapGetters } from "vuex";
 export default {
-  computed: mapGetters(["validTasks"]),
+  computed: mapGetters(["selectedTasks"]),
   components: {
     Task
   }

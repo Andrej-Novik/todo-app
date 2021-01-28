@@ -2,6 +2,7 @@
   <label :class="$style.tab" :id="tab.id">
     <input
       type="radio"
+      @click="changeTab"
       :checked="checked"
       :name="tabState"
     />
@@ -10,6 +11,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "Tab",
   props: {
@@ -18,6 +20,12 @@ export default {
     tabId: Number,
     tabIndex: Number,
     tabState: String
+  },
+  methods: {
+    ...mapMutations(["tabChanging"]),
+    changeTab() {
+      this.tabChanging(this.tabId);
+    }
   }
 };
 </script>
@@ -28,7 +36,7 @@ export default {
   cursor: pointer;
   span {
     margin: 0 0.5rem;
-    padding: 0.25rem;
+    padding: 0.15rem;
   }
   input {
     display: none;
