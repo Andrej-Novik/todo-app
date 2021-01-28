@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.footer">
     <div :class="$style.left">{{ activeCount }}/{{ tasksCount }} left</div>
-    <Tabs :tabs="tabs" />
-    <div :class="$style.clear">
+    <Tabs />
+    <div :class="$style.clear" @click="deleteCompleted">
       Clear completed
     </div>
   </div>
@@ -10,14 +10,17 @@
 
 <script>
 import Tabs from "./Tabs";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
-  data: () => ({
-    tabs: ["All", "Active", "Completed"]
-  }),
   computed: mapGetters(["activeCount", "tasksCount"]),
   components: {
     Tabs
+  },
+  methods: {
+    ...mapMutations(["deleteCompletedTasks"]),
+    deleteCompleted() {
+      this.deleteCompletedTasks();
+    }
   }
 };
 </script>

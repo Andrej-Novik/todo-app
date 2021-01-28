@@ -1,6 +1,10 @@
 <template>
-  <label :class="$style.tab">
-    <input type="radio" name="filter" />
+  <label :class="$style.tab" :id="tab.id">
+    <input
+      type="radio"
+      :checked="checked"
+      :name="tabState"
+    />
     <span>{{ tab }}</span>
   </label>
 </template>
@@ -9,7 +13,11 @@
 export default {
   name: "Tab",
   props: {
-    tab: String
+    tab: String,
+    checked: Boolean,
+    tabId: Number,
+    tabIndex: Number,
+    tabState: String
   }
 };
 </script>

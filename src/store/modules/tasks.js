@@ -27,9 +27,27 @@ export default {
         id: 5
       }
     ],
-    tabsType: {
-      type: "validTasks"
-    }
+    tabs: [
+      {
+        id: 1,
+        tabText: "All",
+        isSelected: true,
+        tabName: "validTasks"
+      },
+      {
+        id: 2,
+        tabText: "Active",
+        isSelected: false,
+        tabName: "activeTasks"
+      },
+      {
+        id: 3,
+        tabText: "Completed",
+        isSelected: false,
+        tabName: "completedTasks"
+      }
+    ],
+    tabsType: "validTasks"
   },
   actions: {},
   mutations: {
@@ -43,6 +61,9 @@ export default {
     },
     deleteTask(state, givenIndex) {
       state.tasks.splice(givenIndex, 1);
+    },
+    deleteCompletedTasks(state) {
+      state.tasks = state.tasks.filter(task => !task.isComplete);
     }
   },
   getters: {
@@ -60,6 +81,9 @@ export default {
     },
     activeCount(state, getters) {
       return getters.activeTasks.length;
+    },
+    allTabs(state) {
+      return state.tabs.filter(tab => tab.taskName != "");
     }
   }
 };
