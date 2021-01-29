@@ -25,7 +25,6 @@ export default {
     allStatusChanging() {
       this.changeAllStatus();
     }
-
   }
 };
 </script>

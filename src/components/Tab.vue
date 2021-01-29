@@ -2,7 +2,10 @@
   <label :class="$style.tab" :id="tab.id">
     <input
       type="radio"
-      @click="changeTab"
+      @click="
+        changeTypeOfTasks();
+        changeTab();
+      "
       :checked="checked"
       :name="tabState"
     />
@@ -22,9 +25,12 @@ export default {
     tabState: String
   },
   methods: {
-    ...mapMutations(["tabChanging"]),
+    ...mapMutations(["tabChanging", "tasksTypeChanging"]),
     changeTab() {
       this.tabChanging(this.tabId);
+    },
+    changeTypeOfTasks() {
+      this.tasksTypeChanging(this.tabState);
     }
   }
 };

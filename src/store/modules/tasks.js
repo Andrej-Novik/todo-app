@@ -3,12 +3,12 @@ export default {
     tasks: [
       {
         taskText: "Task 1",
-        isComplete: true,
+        isComplete: false,
         id: 1
       },
       {
         taskText: "Task 2",
-        isComplete: true,
+        isComplete: false,
         id: 2
       },
       {
@@ -67,14 +67,17 @@ export default {
     deleteTask(state, givenIndex) {
       state.tasks.splice(givenIndex, 1);
     },
-    //ДОБАВЛЕНО
-    tabChanging(state, givenId, targetTabName) {
+
+    tabChanging(state, givenId) {
       state.tabs.map(tab => {
         if (tab.id === givenId) tab.isSelected = true;
         else tab.isSelected = false;
       });
+    },
+    tasksTypeChanging(state, targetTabName) {
       state.tabsType = targetTabName;
     },
+
     deleteCompletedTasks(state) {
       state.tasks = state.tasks.filter(task => !task.isComplete);
     }

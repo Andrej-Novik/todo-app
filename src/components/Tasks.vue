@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.tasks">
+  <div :class="$style.tasks" v-if="selectedTasks.length != 0">
     <Task
       v-for="(task, taskIndex) of selectedTasks"
       :key="task.id"
@@ -8,6 +8,9 @@
       :task="task.taskText"
       :checked="task.isComplete"
     />
+  </div>
+  <div :class="$style.noTasks" v-else>
+    <span> No tasks, add the first </span>
   </div>
 </template>
 
@@ -29,6 +32,15 @@ export default {
   overflow: auto;
   @include forMobile {
     max-height: 190px;
+  }
+}
+.noTasks {
+  height: 54px;
+  span {
+    display: block;
+    padding: 1rem;
+    color: $pageColor;
+    font-size: 1.125rem;
   }
 }
 </style>
