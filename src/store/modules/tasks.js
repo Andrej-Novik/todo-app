@@ -1,47 +1,49 @@
+import { uuid } from "vue-uuid";
+
 export default {
   state: {
     tasks: [
       {
         taskText: "Task 1",
         isComplete: false,
-        id: 1
+        id: uuid.v1()
       },
       {
         taskText: "Task 2",
         isComplete: false,
-        id: 2
+        id: uuid.v1()
       },
       {
         taskText: "Task 3",
         isComplete: false,
-        id: 3
+        id: uuid.v1()
       },
       {
         taskText: "Task 4",
         isComplete: false,
-        id: 4
+        id: uuid.v1()
       },
       {
         taskText: "Task 5",
         isComplete: false,
-        id: 5
+        id: uuid.v1()
       }
     ],
     tabs: [
       {
-        id: 1,
+        id: uuid.v1(),
         tabText: "All",
         isSelected: true,
         tabName: "validTasks"
       },
       {
-        id: 2,
+        id: uuid.v1(),
         tabText: "Active",
         isSelected: false,
         tabName: "activeTasks"
       },
       {
-        id: 3,
+        id: uuid.v1(),
         tabText: "Completed",
         isSelected: false,
         tabName: "completedTasks"
@@ -52,7 +54,11 @@ export default {
   actions: {},
   mutations: {
     createTask(state, newTask) {
-      state.tasks.unshift(newTask);
+      state.tasks.unshift({
+        id: newTask.id,
+        taskText: newTask.taskText,
+        isComplete: false
+      });
     },
     changeStatus(state, givenId) {
       state.tasks.map(task => {
@@ -67,17 +73,14 @@ export default {
     deleteTask(state, givenIndex) {
       state.tasks.splice(givenIndex, 1);
     },
-
-    tabChanging(state, givenId) {
+    tasksTypeChanging(state, givenId) {
       state.tabs.map(tab => {
-        if (tab.id === givenId) tab.isSelected = true;
-        else tab.isSelected = false;
+        if (tab.id === givenId) {
+          tab.isSelected = true;
+          state.tabsType = tab.tabName;
+        } else tab.isSelected = false;
       });
     },
-    tasksTypeChanging(state, targetTabName) {
-      state.tabsType = targetTabName;
-    },
-
     deleteCompletedTasks(state) {
       state.tasks = state.tasks.filter(task => !task.isComplete);
     }

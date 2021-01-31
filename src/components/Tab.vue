@@ -1,11 +1,8 @@
 <template>
-  <label :class="$style.tab" :id="tab.id">
+  <label :class="$style.tab">
     <input
       type="radio"
-      @click="
-        changeTypeOfTasks();
-        changeTab();
-      "
+      @click="changeTypeOfTasks()"
       :checked="checked"
       :name="tabState"
     />
@@ -20,17 +17,13 @@ export default {
   props: {
     tab: String,
     checked: Boolean,
-    tabId: Number,
-    tabIndex: Number,
+    tabId: String,
     tabState: String
   },
   methods: {
-    ...mapMutations(["tabChanging", "tasksTypeChanging"]),
-    changeTab() {
-      this.tabChanging(this.tabId);
-    },
+    ...mapMutations(["tasksTypeChanging"]),
     changeTypeOfTasks() {
-      this.tasksTypeChanging(this.tabState);
+      this.tasksTypeChanging(this.tabId);
     }
   }
 };

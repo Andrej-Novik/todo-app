@@ -29,7 +29,7 @@ export default {
   props: {
     task: String,
     checked: Boolean,
-    taskId: Number,
+    taskId: String,
     taskIndex: Number
   }
 };

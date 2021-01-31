@@ -1,15 +1,19 @@
 <template>
   <form @submit.prevent="addTask" :class="$style.addTask">
     <span @click="allStatusChanging"></span>
-    <input type="text" :placeholder="placeholderText" v-model="newTaskText" />
+    <input
+      type="text"
+      placeholder="Whats needs to be done?"
+      v-model="newTaskText"
+    />
   </form>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
+import { uuid } from "vue-uuid";
 export default {
   data: () => ({
-    placeholderText: "Whats needs to be done?",
     newTaskText: ""
   }),
   methods: {
@@ -17,8 +21,7 @@ export default {
     addTask() {
       this.createTask({
         taskText: this.newTaskText,
-        isComplete: false,
-        id: Date.now()
+        id: uuid.v1()
       });
       this.newTaskText = "";
     },
