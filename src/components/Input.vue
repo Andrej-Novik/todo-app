@@ -1,18 +1,42 @@
 <template>
-  <div :class="$style.addTask">
-    <input type="text" placeholder="Whats needs to be done?" name="" />
-  </div>
+  <form @submit.prevent="addTask" :class="$style.addTask">
+    <span @click="allStatusChanging"></span>
+    <input
+      type="text"
+      placeholder="Whats needs to be done?"
+      v-model="newTaskText"
+    />
+  </form>
 </template>
+
+<script>
+import { mapMutations } from "vuex";
+export default {
+  data: () => ({
+    newTaskText: ""
+  }),
+  methods: {
+    ...mapMutations(["createTask", "changeAllStatus"]),
+    addTask() {
+      this.createTask(this.newTaskText);
+      this.newTaskText = "";
+    },
+    allStatusChanging() {
+      this.changeAllStatus();
+    }
+  }
+};
+</script>
 
 <style lang="scss" module>
 @import "@/assets/styles/Vars&Mixins.scss";
 .addTask {
   padding: 0 0 0 2rem;
   position: relative;
-  border-bottom: 2px solid $pageCalor;
+  border-bottom: 2px solid $pageColor;
   input {
     width: 100%;
-    color: $pageCalor;
+    color: $pageColor;
     padding: 0.6rem 2rem 0.6rem 1rem;
     font-style: italic;
     font-size: 1.125rem;
@@ -21,27 +45,29 @@
       color: #c1c1c1;
     }
   }
-  &:before {
-    content: "";
-    position: absolute;
-    top: 22px;
-    left: 15px;
-    width: 10px;
-    height: 2px;
-    background-color: $pageCalor;
-    transform: rotate(45deg);
-    cursor: pointer;
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    top: 22px;
-    left: 20px;
-    width: 10px;
-    height: 2px;
-    background-color: $pageCalor;
-    transform: rotate(-45deg);
-    cursor: pointer;
+  span {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 15px;
+      width: 10px;
+      height: 2px;
+      background-color: $pageColor;
+      transform: rotate(45deg);
+      cursor: pointer;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: 20px;
+      width: 10px;
+      height: 2px;
+      background-color: $pageColor;
+      transform: rotate(-45deg);
+      cursor: pointer;
+    }
   }
 }
 </style>

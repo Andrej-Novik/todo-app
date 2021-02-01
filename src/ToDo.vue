@@ -36,15 +36,15 @@ body {
   margin: 0 auto;
   .body {
     background-color: #ffffff;
-    border: 0.125rem solid $pageCalor;
-    border-bottom: 1px solid $pageCalor;
+    border: 0.125rem solid $pageColor;
+    border-bottom: 1px solid $pageColor;
     border-radius: 0.25rem;
     overflow: hidden;
   }
   .mask {
     margin: 0 auto;
     height: 5px;
-    border: 1px solid $pageCalor;
+    border: 1px solid $pageColor;
     border-top: none;
     background-color: #ffffff;
     border-radius: 0 0 0.25rem 0.25rem;

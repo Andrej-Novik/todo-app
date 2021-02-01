@@ -1,20 +1,36 @@
 <template>
   <label :class="$style.task">
-    <input :class="$style.checkbox" type="checkbox" :checked="checked" />
+    <input
+      :class="$style.checkbox"
+      type="checkbox"
+      :checked="checked"
+      :id="task.id"
+      @click="Change"
+    />
     <span :class="$style.check"></span>
     <span :class="$style.text">{{ task }}</span>
+    <button :class="$style.delete" @click="Delete">delete</button>
   </label>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "Task",
+  methods: {
+    ...mapMutations(["changeStatus", "deleteTask"]),
+    Change() {
+      this.changeStatus(this.taskId);
+    },
+    Delete() {
+      this.deleteTask(this.taskIndex);
+    }
+  },
   props: {
     task: String,
-    checked: {
-      type: Boolean,
-      default: false
-    }
+    checked: Boolean,
+    taskId: String,
+    taskIndex: Number
   }
 };
 </script>
@@ -24,15 +40,25 @@ export default {
 .task {
   font-size: 1.125rem;
   padding: 0.75rem 0 0.75rem 0.75rem;
-  border-bottom: 1px solid $pageCalor;
+  border-bottom: 1px solid $pageColor;
   display: flex;
   color: #000;
+  &:hover .delete {
+    display: block;
+  }
   .text {
     padding: 0 0 0 0.75rem;
     max-width: 300px;
+    flex: 1 1 auto;
     @include forMobile {
       max-width: 250px;
     }
+  }
+  .delete {
+    display: none;
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+    color: $pageColor;
   }
   .checkbox {
     display: none;
