@@ -11,7 +11,6 @@
 
 <script>
 import { mapMutations } from "vuex";
-import { uuid } from "vue-uuid";
 export default {
   data: () => ({
     newTaskText: ""
@@ -20,8 +19,7 @@ export default {
     ...mapMutations(["createTask", "changeAllStatus"]),
     addTask() {
       this.createTask({
-        taskText: this.newTaskText,
-        id: uuid.v1()
+        taskText: this.newTaskText
       });
       this.newTaskText = "";
     },

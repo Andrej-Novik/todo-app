@@ -1,4 +1,4 @@
-import { uuid } from "vue-uuid";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   state: {
@@ -6,44 +6,44 @@ export default {
       {
         taskText: "Task 1",
         isComplete: false,
-        id: uuid.v1()
+        id: uuidv4()
       },
       {
         taskText: "Task 2",
         isComplete: false,
-        id: uuid.v1()
+        id: uuidv4()
       },
       {
         taskText: "Task 3",
         isComplete: false,
-        id: uuid.v1()
+        id: uuidv4()
       },
       {
         taskText: "Task 4",
         isComplete: false,
-        id: uuid.v1()
+        id: uuidv4()
       },
       {
         taskText: "Task 5",
         isComplete: false,
-        id: uuid.v1()
+        id: uuidv4()
       }
     ],
     tabs: [
       {
-        id: uuid.v1(),
+        id: uuidv4(),
         tabText: "All",
         isSelected: true,
         tabName: "validTasks"
       },
       {
-        id: uuid.v1(),
+        id: uuidv4(),
         tabText: "Active",
         isSelected: false,
         tabName: "activeTasks"
       },
       {
-        id: uuid.v1(),
+        id: uuidv4(),
         tabText: "Completed",
         isSelected: false,
         tabName: "completedTasks"
@@ -55,7 +55,7 @@ export default {
   mutations: {
     createTask(state, newTask) {
       state.tasks.unshift({
-        id: newTask.id,
+        id: uuidv4(),
         taskText: newTask.taskText,
         isComplete: false
       });
