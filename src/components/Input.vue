@@ -18,9 +18,7 @@ export default {
   methods: {
     ...mapMutations(["createTask", "changeAllStatus"]),
     addTask() {
-      this.createTask({
-        taskText: this.newTaskText
-      });
+      this.createTask(this.newTaskText);
       this.newTaskText = "";
     },
     allStatusChanging() {

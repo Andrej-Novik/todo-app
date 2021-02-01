@@ -56,7 +56,7 @@ export default {
     createTask(state, newTask) {
       state.tasks.unshift({
         id: uuidv4(),
-        taskText: newTask.taskText,
+        taskText: newTask,
         isComplete: false
       });
     },
