@@ -3,9 +3,10 @@
     <input
       :class="$style.checkbox"
       type="checkbox"
-      :checked="checked"
+      :checked="isComplete"
       :id="task.id"
       @click="Change"
+      @change="e => $emit('change', e)"
     />
     <span :class="$style.check"></span>
     <span :class="$style.text">{{ task }}</span>
@@ -28,7 +29,7 @@ export default {
   },
   props: {
     task: String,
-    checked: Boolean,
+    isComplete: Boolean,
     taskId: String,
     taskIndex: Number
   }

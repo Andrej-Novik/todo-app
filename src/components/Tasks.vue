@@ -6,7 +6,8 @@
       :taskId="task.id"
       :taskIndex="taskIndex"
       :task="task.taskText"
-      :checked="task.isComplete"
+      :isComplete="task.isComplete"
+      @change="e => setTodo(task.id, e.target.checked)"
     />
   </div>
   <div :class="$style.noTasks" v-else>
@@ -21,6 +22,11 @@ export default {
   computed: mapGetters(["selectedTasks"]),
   components: {
     Task
+  },
+  methods: {
+    setTodo(id, value) {
+      this.$store.commit("setTodo", { id, value });
+    }
   }
 };
 </script>

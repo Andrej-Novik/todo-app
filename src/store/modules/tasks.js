@@ -2,33 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default {
   state: {
-    tasks: [
-      {
-        taskText: "Task 1",
-        isComplete: false,
-        id: uuidv4()
-      },
-      {
-        taskText: "Task 2",
-        isComplete: false,
-        id: uuidv4()
-      },
-      {
-        taskText: "Task 3",
-        isComplete: false,
-        id: uuidv4()
-      },
-      {
-        taskText: "Task 4",
-        isComplete: false,
-        id: uuidv4()
-      },
-      {
-        taskText: "Task 5",
-        isComplete: false,
-        id: uuidv4()
-      }
-    ],
+    tasks: [],
     tabs: [
       {
         id: uuidv4(),
@@ -53,25 +27,32 @@ export default {
   },
   actions: {},
   mutations: {
+    getFromStorage(state) {
+      state.tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    },
     createTask(state, newTask) {
       state.tasks.unshift({
         id: uuidv4(),
         taskText: newTask,
         isComplete: false
       });
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     changeStatus(state, givenId) {
       state.tasks.map(task => {
         if (task.id === givenId) task.isComplete = !task.isComplete;
       });
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     changeAllStatus(state) {
       state.tasks.map(task => {
         task.isComplete = true;
       });
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     deleteTask(state, givenIndex) {
       state.tasks.splice(givenIndex, 1);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
     tasksTypeChanging(state, givenId) {
       state.tabs.map(tab => {
@@ -83,6 +64,13 @@ export default {
     },
     deleteCompletedTasks(state) {
       state.tasks = state.tasks.filter(task => !task.isComplete);
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
+    },
+    setTodo(state, { id, value }) {
+      state.tasks = state.tasks.map(task =>
+        task.id === id ? { ...task, isComplete: value } : task
+      );
+      localStorage.setItem("tasks", JSON.stringify(state.tasks));
     }
   },
   getters: {
