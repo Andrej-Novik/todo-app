@@ -1,7 +1,7 @@
 <template>
-  <div :class="$style.tasks" v-if="selectedTasks.length != 0">
+  <div :class="$style.tasks" v-if="filteredTasks.length != 0">
     <Task
-      v-for="(task, taskIndex) of selectedTasks"
+      v-for="(task, taskIndex) of filteredTasks"
       :key="task.id"
       :taskId="task.id"
       :taskIndex="taskIndex"
@@ -17,15 +17,16 @@
 
 <script>
 import Task from "./Task";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
-  computed: mapGetters(["selectedTasks"]),
+  computed: mapGetters(["filteredTasks"]),
   components: {
     Task
   },
   methods: {
+    ...mapMutations(["setTodo"]),
     setTodo(id, value) {
-      this.$store.commit("setTodo", { id, value });
+      this.setTodo({ id, value });
     }
   }
 };
