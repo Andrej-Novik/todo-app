@@ -41,6 +41,7 @@ export default {
     font-style: italic;
     font-size: 1.125rem;
     letter-spacing: 1px;
+    outline: none;
     &::placeholder {
       color: #c1c1c1;
     }

@@ -22,6 +22,9 @@ export default {
     Title,
     Tasks,
     Input
+  },
+  mounted() {
+    this.$store.commit("getFromStorage");
   }
 };
 </script>

@@ -1,9 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import Tasks from "./modules/tasks";
-import UUID from "vue-uuid";
 
-Vue.use(UUID);
 Vue.use(Vuex);
 
 export default new Vuex.Store({

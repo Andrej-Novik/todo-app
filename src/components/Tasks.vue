@@ -1,12 +1,13 @@
 <template>
-  <div :class="$style.tasks" v-if="selectedTasks.length != 0">
+  <div :class="$style.tasks" v-if="filteredTasks.length != 0">
     <Task
-      v-for="(task, taskIndex) of selectedTasks"
+      v-for="(task, taskIndex) of filteredTasks"
       :key="task.id"
-      :taskId="task.id"
+      :id="task.id"
       :taskIndex="taskIndex"
-      :task="task.taskText"
-      :checked="task.isComplete"
+      :taskText="task.taskText"
+      :isComplete="task.isComplete"
+      @change="e => setTask(task.id, e.target.checked)"
     />
   </div>
   <div :class="$style.noTasks" v-else>
@@ -16,11 +17,18 @@
 
 <script>
 import Task from "./Task";
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
-  computed: mapGetters(["selectedTasks"]),
+  name: "Tasks",
+  computed: mapGetters(["filteredTasks"]),
   components: {
     Task
+  },
+  methods: {
+    ...mapMutations(["changeTaskStatus"]),
+    setTask(id, value) {
+      this.changeTaskStatus({ id, value });
+    }
   }
 };
 </script>
