@@ -10,25 +10,12 @@
       />
       <span>{{ option }}</span>
     </label>
-    <!--<Tab
-      v-for="(tab, tabIndex) of allTabs"
-      :key="tab.id"
-      :tab="tab.tabText"
-      :checked="tab.isSelected"
-      :tabIndex="tabIndex"
-      :tabId="tab.id"
-      :tabState="tab.tabName"
-    />-->
   </div>
 </template>
 
 <script>
-//import Tab from "./Tab";
 export default {
   name: "Tabs",
-  //components: {
-  //  Tab
-  //},
   props: {
     options: Array,
     value: String
