@@ -3,11 +3,11 @@
     <Task
       v-for="(task, taskIndex) of filteredTasks"
       :key="task.id"
-      :taskId="task.id"
+      :id="task.id"
       :taskIndex="taskIndex"
-      :task="task.taskText"
+      :taskText="task.taskText"
       :isComplete="task.isComplete"
-      @change="e => setTodo(task.id, e.target.checked)"
+      @change="e => setTask(task.id, e.target.checked)"
     />
   </div>
   <div :class="$style.noTasks" v-else>
@@ -19,14 +19,15 @@
 import Task from "./Task";
 import { mapGetters, mapMutations } from "vuex";
 export default {
+  name: "Tasks",
   computed: mapGetters(["filteredTasks"]),
   components: {
     Task
   },
   methods: {
-    ...mapMutations(["setTodo"]),
-    setTodo(id, value) {
-      this.setTodo({ id, value });
+    ...mapMutations(["changeTaskStatus"]),
+    setTask(id, value) {
+      this.changeTaskStatus({ id, value });
     }
   }
 };

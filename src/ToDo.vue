@@ -16,7 +16,6 @@ import Footer from "@/components/Footer";
 import Title from "@/components/Title";
 import Tasks from "@/components/Tasks";
 import Input from "@/components/Input";
-import { mapMutations } from "vuex";
 export default {
   components: {
     Footer,
@@ -24,9 +23,8 @@ export default {
     Tasks,
     Input
   },
-  computed: mapMutations(["getFromStorage"]),
   mounted() {
-    this.getFromStorage();
+    this.$store.commit("getFromStorage");
   }
 };
 </script>

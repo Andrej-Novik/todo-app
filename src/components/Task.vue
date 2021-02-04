@@ -4,12 +4,10 @@
       :class="$style.checkbox"
       type="checkbox"
       :checked="isComplete"
-      :id="task.id"
-      @click="Change"
       @change="e => $emit('change', e)"
     />
     <span :class="$style.check"></span>
-    <span :class="$style.text">{{ task }}</span>
+    <span :class="$style.text">{{ taskText }}</span>
     <button :class="$style.delete" @click="Delete">delete</button>
   </label>
 </template>
@@ -19,19 +17,15 @@ import { mapMutations } from "vuex";
 export default {
   name: "Task",
   methods: {
-    ...mapMutations(["changeStatus", "deleteTask"]),
-    Change() {
-      this.changeStatus(this.taskId);
-    },
+    ...mapMutations(["deleteTask"]),
     Delete() {
       this.deleteTask(this.taskIndex);
     }
   },
   props: {
-    task: String,
-    isComplete: Boolean,
-    taskId: String,
-    taskIndex: Number
+    taskText: String,
+    taskIndex: Number,
+    isComplete: Boolean
   }
 };
 </script>
