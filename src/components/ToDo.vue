@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import Footer from "@/components/Footer";
-import Title from "@/components/Title";
-import Tasks from "@/components/Tasks";
-import Input from "@/components/Input";
+import Footer from "./Footer";
+import Title from "./Title";
+import Tasks from "./Tasks";
+import Input from "./Input";
 export default {
   components: {
     Footer,

@@ -5,10 +5,14 @@ export default {
     tasks: [],
     filter: "All"
   },
-  actions: {},
+  actions: {
+    getFromStorage(context) {
+      context.commit("getFromStorage");
+    }
+  },
   mutations: {
     getFromStorage(state) {
-      state.tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+      state.tasks = JSON.parse(localStorage.getItem("tasks")) || new Array();
     },
 
     createTask(state, newTask) {

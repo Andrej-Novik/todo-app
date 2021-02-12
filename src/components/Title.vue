@@ -2,6 +2,12 @@
   <h1 :class="$style.title">todos</h1>
 </template>
 
+<script>
+export default {
+  name: "Title"
+};
+</script>
+
 <style lang="scss" module scoped>
 @import "@/assets/styles/Vars&Mixins.scss";
 .title {

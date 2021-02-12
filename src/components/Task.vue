@@ -34,7 +34,7 @@ export default {
 @import "@/assets/styles/Vars&Mixins.scss";
 .task {
   font-size: 1.125rem;
-  padding: 0.75rem 0 0.75rem 0.75rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
   border-bottom: 1px solid $pageColor;
   display: flex;
   color: #000;

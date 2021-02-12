@@ -12,6 +12,7 @@
 import Tabs from "./Tabs";
 import { mapGetters, mapMutations } from "vuex";
 export default {
+  name: "Footer",
   components: {
     Tabs
   },

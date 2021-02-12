@@ -37,7 +37,7 @@ export default {
 @import "@/assets/styles/Vars&Mixins.scss";
 .tasks {
   max-height: 143px;
-  overflow: auto;
+  overflow-y: auto;
   @include forMobile {
     max-height: 190px;
   }
