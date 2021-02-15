@@ -25,9 +25,9 @@ export default {
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
 
-    changeTaskStatus(state, { id, value }) {
+    changeTaskStatus(state, id) {
       state.tasks = state.tasks.map(task =>
-        task.id === id ? { ...task, isComplete: value } : task
+        task.id === id ? { ...task, isComplete: !task.isComplete } : task
       );
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
@@ -51,15 +51,6 @@ export default {
     deleteCompletedTasks(state) {
       state.tasks = state.tasks.filter(task => !task.isComplete);
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
-    },
-
-    tasksTypeChanging(state, givenId) {
-      state.tabs.map(tab => {
-        if (tab.id === givenId) {
-          tab.isSelected = true;
-          state.tabsType = tab.tabName;
-        } else tab.isSelected = false;
-      });
     }
   },
   getters: {

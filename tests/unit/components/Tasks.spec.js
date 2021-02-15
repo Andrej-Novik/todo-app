@@ -1,29 +1,25 @@
-import { mount, createLocalVue } from "@vue/test-utils";
+import { mount, shallowMount, createLocalVue } from "@vue/test-utils";
 import Tasks from "@/components/Tasks";
 import Vuex from "vuex";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe("test for component Tasks", () => {
+describe("test for Tasks vuex", () => {
   let mutations;
   let store;
   let getters;
 
   beforeEach(() => {
     mutations = {
-      getFromStorage: jest.fn()
+      getFromStorage: jest.fn(),
+      changeTaskStatus: jest.fn()
     };
     getters = {
       filteredTasks: () => [
         {
           id: "1",
           message: "aaa",
-          checked: false
-        },
-        {
-          id: "2",
-          message: "bbb",
           checked: false
         }
       ]
@@ -33,18 +29,15 @@ describe("test for component Tasks", () => {
       getters
     });
   });
-
-  it("render a Task", () => {
+  it('call "changeTaskStatus"', () => {
     const wrapper = mount(Tasks, { store, localVue });
+    console.log(wrapper.html());
+    wrapper.find("input").trigger("change");
+    expect(mutations.changeTaskStatus).toHaveBeenCalled();
+  });
+  it("render a Task", () => {
+    const wrapper = shallowMount(Tasks, { store, localVue });
     expect(wrapper.find("Task")).toBeTruthy();
     expect(wrapper.isVisible()).toBe(true);
   });
 });
-
-//describe("test for component Tasks", () => {
-//  const wrapper = mount(Tasks);
-
-//  test("render a Task", () => {
-//    expect(wrapper.find("Task")).toBeTruthy();
-//  });
-//});

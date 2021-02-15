@@ -7,7 +7,7 @@
       :taskIndex="taskIndex"
       :taskText="task.taskText"
       :isComplete="task.isComplete"
-      @change="e => setTask(task.id, e.target.checked)"
+      @change="e => setTask(task.id)"
     />
   </div>
   <div :class="$style.noTasks" v-else>
@@ -26,8 +26,8 @@ export default {
   },
   methods: {
     ...mapMutations(["changeTaskStatus"]),
-    setTask(id, value) {
-      this.changeTaskStatus({ id, value });
+    setTask(id) {
+      this.changeTaskStatus(id);
     }
   }
 };

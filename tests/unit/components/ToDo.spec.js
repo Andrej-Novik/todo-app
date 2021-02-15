@@ -6,15 +6,15 @@ const localVue = createLocalVue();
 localVue.use(Vuex);
 
 describe("test for component ToDo", () => {
-  let mutations;
   let store;
+  let actions;
 
   beforeEach(() => {
-    mutations = {
+    actions = {
       getFromStorage: jest.fn()
     };
     store = new Vuex.Store({
-      mutations
+      actions
     });
   });
 

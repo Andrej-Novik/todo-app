@@ -24,7 +24,7 @@ export default {
     Input
   },
   mounted() {
-    this.$store.commit("getFromStorage");
+    this.$store.dispatch("getFromStorage");
   }
 };
 </script>

@@ -3,15 +3,15 @@ import Tabs from "@/components/Tabs";
 
 describe("test for component Tabs", () => {
   const wrapper = mount(Tabs);
-  test("render a input", () => {
+  it("render a input", () => {
     expect(wrapper.find("input")).toBeTruthy();
   });
-  test("visibility", () => {
+  it("visibility", () => {
     expect(wrapper.isVisible()).toBe(true);
   });
 });
 
-describe("test for component Tabs", () => {
+describe("test for props of Tabs", () => {
   const wrapper = mount(Tabs, {
     propsData: {
       options: [],
@@ -19,7 +19,7 @@ describe("test for component Tabs", () => {
     }
   });
 
-  test("test for props", () => {
+  it("test for props", () => {
     expect(wrapper.props().options).toStrictEqual([]);
     expect(wrapper.props().value).toBe("All");
   });
