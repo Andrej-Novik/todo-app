@@ -1,11 +1,10 @@
 import { createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
 import storeConfig from "./store.cfg";
-import { cloneDeep } from "lodash";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
-const store = new Vuex.Store(cloneDeep(storeConfig));
+const store = new Vuex.Store(storeConfig);
 
 describe("tests for store", () => {
   it("set state used action", () => {
