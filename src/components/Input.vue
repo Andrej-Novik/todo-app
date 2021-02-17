@@ -12,6 +12,7 @@
 <script>
 import { mapMutations } from "vuex";
 export default {
+  name: "Input",
   data: () => ({
     newTaskText: ""
   }),
@@ -31,11 +32,13 @@ export default {
 <style lang="scss" module>
 @import "@/assets/styles/Vars&Mixins.scss";
 .addTask {
-  padding: 0 0 0 2rem;
+  padding: 0 1rem 0 2rem;
   position: relative;
+  display: flex;
+  align-items: center;
   border-bottom: 2px solid $pageColor;
   input {
-    width: 100%;
+    width: 300px;
     color: $pageColor;
     padding: 0.6rem 2rem 0.6rem 1rem;
     font-style: italic;
@@ -69,6 +72,9 @@ export default {
       transform: rotate(-45deg);
       cursor: pointer;
     }
+  }
+  .error{
+    color: red;
   }
 }
 </style>

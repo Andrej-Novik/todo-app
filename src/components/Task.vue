@@ -34,20 +34,19 @@ export default {
 @import "@/assets/styles/Vars&Mixins.scss";
 .task {
   font-size: 1.125rem;
-  padding: 0.75rem 0 0.75rem 0.75rem;
+  padding: 0.75rem 1rem 0.75rem 0.75rem;
   border-bottom: 1px solid $pageColor;
   display: flex;
   color: #000;
-  &:hover .delete {
-    display: block;
+  @media (min-width: 988px) {
+    &:hover .delete {
+      display: block;
+    }
   }
   .text {
     padding: 0 0 0 0.75rem;
     max-width: 300px;
     flex: 1 1 auto;
-    @include forMobile {
-      max-width: 250px;
-    }
   }
   .delete {
     display: none;

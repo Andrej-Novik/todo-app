@@ -2,9 +2,9 @@
   <div :class="$style.footer">
     <div>{{ activeTasksCount }}/{{ tasksCount }} left</div>
     <Tabs :options="filters" v-model="filter" />
-    <div :class="$style.clear" @click="deleteCompleted">
+    <button :class="$style.clear" @click="deleteCompleted">
       Clear completed
-    </div>
+    </button>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
 import Tabs from "./Tabs";
 import { mapGetters, mapMutations } from "vuex";
 export default {
+  name: "Footer",
   components: {
     Tabs
   },
@@ -56,6 +57,11 @@ export default {
   }
   .clear {
     cursor: pointer;
+    display: block;
+    color: $pageColor;
+    background-color: #fff;
+    font-size: 15px;
+    font-family: "Helvetica Neue";
   }
 }
 </style>

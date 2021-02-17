@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import ToDo from "@/ToDo";
+import ToDo from "@/components/ToDo";
 
 Vue.use(VueRouter);
 
