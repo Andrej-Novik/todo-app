@@ -31,7 +31,6 @@ describe("test for Tasks vuex", () => {
   });
   it('call "changeTaskStatus"', () => {
     const wrapper = mount(Tasks, { store, localVue });
-    console.log(wrapper.html());
     wrapper.find("input").trigger("change");
     expect(mutations.changeTaskStatus).toHaveBeenCalled();
   });
