@@ -11,7 +11,7 @@ describe("test for Task vuex", () => {
 
   beforeEach(() => {
     mutations = {
-      deleteTask: jest.fn(),
+      deleteTask: jest.fn()
     };
     store = new Vuex.Store({
       mutations

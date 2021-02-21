@@ -1,6 +1,6 @@
 <template>
-  <form @submit.prevent="addTask" :class="$style.addTask">
-    <span @click="allStatusChanging"></span>
+  <form @submit.prevent="addTask" :class="$style.addTask" id="addTask">
+    <span @click="allStatusChanging" id="allStatusChanging"></span>
     <input
       type="text"
       placeholder="Whats needs to be done?"
@@ -72,9 +72,6 @@ export default {
       transform: rotate(-45deg);
       cursor: pointer;
     }
-  }
-  .error{
-    color: red;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div :class="$style.tabs">
-    <label v-for="option in options" :key="option" :class="$style.tab">
+  <div :class="$style.tabs" id="tabs">
+    <label v-for="option in options" :key="option" :class="$style.tab" id="tab">
       <input
         type="radio"
         name="filter"

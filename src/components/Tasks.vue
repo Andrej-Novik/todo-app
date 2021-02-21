@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.tasks" v-if="filteredTasks.length != 0">
+  <div :class="$style.tasks" id="tasks" v-if="filteredTasks.length != 0">
     <Task
       v-for="(task, taskIndex) of filteredTasks"
       :key="task.id"
