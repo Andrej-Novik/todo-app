@@ -1,14 +1,15 @@
 <template>
-  <label :class="$style.task">
+  <label :class="$style.task" id="task">
     <input
+      id="checkbox"
       :class="$style.checkbox"
       type="checkbox"
       :checked="isComplete"
       @change="e => $emit('change', e)"
     />
-    <span :class="$style.check"></span>
-    <span :class="$style.text">{{ taskText }}</span>
-    <button :class="$style.delete" @click="Delete">delete</button>
+    <span :class="$style.check" id="check"></span>
+    <span :class="$style.text" id="text">{{ taskText }}</span>
+    <button :class="$style.delete" id="delete" @click="Delete">delete</button>
   </label>
 </template>
 

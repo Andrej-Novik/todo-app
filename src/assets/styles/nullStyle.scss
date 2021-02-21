@@ -26,3 +26,8 @@ input {
 ul li {
   list-style: none;
 }
+button, 
+button:active, 
+button:focus {
+    outline: none;
+}

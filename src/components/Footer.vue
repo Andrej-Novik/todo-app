@@ -2,7 +2,7 @@
   <div :class="$style.footer">
     <div>{{ activeTasksCount }}/{{ tasksCount }} left</div>
     <Tabs :options="filters" v-model="filter" />
-    <button :class="$style.clear" @click="deleteCompleted">
+    <button :class="$style.clear" id="clear" @click="deleteCompleted">
       Clear completed
     </button>
   </div>

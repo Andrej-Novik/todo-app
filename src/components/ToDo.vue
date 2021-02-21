@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.page">
+  <div :class="$style.page" id="page">
     <Title />
     <div :class="$style.body">
       <Input />
