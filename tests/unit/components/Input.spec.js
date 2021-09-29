@@ -12,10 +12,10 @@ describe("test for Input vuex", () => {
   beforeEach(() => {
     mutations = {
       changeAllStatus: jest.fn(),
-      createTask: jest.fn()
+      createTask: jest.fn(),
     };
     store = new Vuex.Store({
-      mutations
+      mutations,
     });
   });
 
@@ -24,7 +24,6 @@ describe("test for Input vuex", () => {
     wrapper.find("span").trigger("click");
     expect(mutations.changeAllStatus).toHaveBeenCalled();
   });
-
   it('call "createTask"', () => {
     const wrapper = shallowMount(Input, { store, localVue });
     wrapper.find("form").trigger("submit.prevent");
@@ -33,12 +32,10 @@ describe("test for Input vuex", () => {
 });
 describe("test for component Input", () => {
   const wrapper = mount(Input);
-
   it("render a input", () => {
     expect(wrapper.find("input")).toBeTruthy();
     expect(wrapper.isVisible()).toBe(true);
   });
-
   it("setData", async () => {
     await wrapper.setData({ newTaskText: "newTaskText1" });
     expect(wrapper.vm.newTaskText).toBe("newTaskText1");

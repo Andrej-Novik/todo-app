@@ -15,10 +15,9 @@ describe("test for props of Tabs", () => {
   const wrapper = mount(Tabs, {
     propsData: {
       options: [],
-      value: "All"
-    }
+      value: "All",
+    },
   });
-
   it("test for props", () => {
     expect(wrapper.props().options).toStrictEqual([]);
     expect(wrapper.props().value).toBe("All");

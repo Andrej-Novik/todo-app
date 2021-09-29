@@ -11,15 +11,16 @@ describe("test for component ToDo", () => {
 
   beforeEach(() => {
     actions = {
-      getFromStorage: jest.fn()
+      getFromStorage: jest.fn(),
     };
     store = new Vuex.Store({
-      actions
+      actions,
     });
   });
 
   it("render a Title Tasks, Footer, Input", () => {
-    const wrapper = shallowMount(ToDo, { store, localVue });
+		const wrapper = shallowMount(ToDo, { store, localVue });
+		
     expect(wrapper.find("Title")).toBeTruthy();
     expect(wrapper.find("Input")).toBeTruthy();
     expect(wrapper.find("Tasks")).toBeTruthy();

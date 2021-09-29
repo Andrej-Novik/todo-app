@@ -11,10 +11,10 @@ describe("test for Task vuex", () => {
 
   beforeEach(() => {
     mutations = {
-      deleteTask: jest.fn()
+      deleteTask: jest.fn(),
     };
     store = new Vuex.Store({
-      mutations
+      mutations,
     });
   });
   it('call "deleteTask"', () => {
@@ -24,8 +24,8 @@ describe("test for Task vuex", () => {
   });
 });
 describe("test for Task vuex", () => {
-  const wrapper = shallowMount(Task);
-
+	const wrapper = shallowMount(Task);
+	
   it("render a input", () => {
     expect(wrapper.find("input")).toBeTruthy();
     expect(wrapper.isVisible()).toBe(true);

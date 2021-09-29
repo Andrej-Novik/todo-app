@@ -13,20 +13,20 @@ describe("test for Tasks vuex", () => {
   beforeEach(() => {
     mutations = {
       getFromStorage: jest.fn(),
-      changeTaskStatus: jest.fn()
+      changeTaskStatus: jest.fn(),
     };
     getters = {
       filteredTasks: () => [
         {
           id: "1",
           message: "aaa",
-          checked: false
-        }
-      ]
+          checked: false,
+        },
+      ],
     };
     store = new Vuex.Store({
       mutations,
-      getters
+      getters,
     });
   });
   it('call "changeTaskStatus"', () => {

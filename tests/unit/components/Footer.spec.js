@@ -1,4 +1,4 @@
-import { mount, shallowMount, createLocalVue } from "@vue/test-utils";
+import { mount, createLocalVue } from "@vue/test-utils";
 import Footer from "@/components/Footer";
 import Vuex from "vuex";
 
@@ -13,23 +13,22 @@ describe("test for Footer vuex", () => {
   beforeEach(() => {
     mutations = {
       deleteCompletedTasks: jest.fn(),
-      changeFilter: jest.fn()
+      changeFilter: jest.fn(),
     };
     getters = {
       activeTasksCount: jest.fn(),
-      tasksCount: jest.fn()
+      tasksCount: jest.fn(),
     };
     store = new Vuex.Store({
       mutations,
-      getters
+      getters,
     });
   });
   it('call "changeTaskStatus"', () => {
-	const wrapper = mount(Footer, { store, localVue });
-
-	wrapper.find('input[name="filter"]').trigger("change");
-	expect(mutations.changeFilter).toHaveBeenCalled();
- });
+    const wrapper = mount(Footer, { store, localVue });
+    wrapper.find('input[name="filter"]').trigger("change");
+    expect(mutations.changeFilter).toHaveBeenCalled();
+  });
   it('call "deleteCompletedTasks"', () => {
     const wrapper = mount(Footer, { store, localVue });
     wrapper.find("button").trigger("click");
